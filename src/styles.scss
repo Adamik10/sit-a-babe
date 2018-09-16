@@ -1,5 +1,9 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+*{
+  box-sizing: content-box;
+}
+
 .app-name{
     font-family: 'Fugaz One', cursive;
     font-size: 1.2em;
