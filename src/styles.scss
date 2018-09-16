@@ -3,7 +3,7 @@
 *{
   box-sizing: content-box;
 }
-
+// ---------------------------------------------------------------------------- NAV MAIN
 .app-name{
     font-family: 'Fugaz One', cursive;
     font-size: 1.2em;
@@ -15,4 +15,28 @@
 }
 .example-spacer {
   flex: 1 1 auto;
+}
+// ---------------------------------------------------------------------------- HOME
+.to-middle-spager{
+    height: 12vh;
+}
+h2{
+    font-family: 'Fugaz One', cursive;
+    font-size: 1em;
+    text-align: center;
+    color: #673AB7;
+}
+h1{
+    font-family: 'Fugaz One', cursive;
+    font-size: 6em;
+    text-align: center;
+    color: #673AB7;
+}
+.img-in-the-middle{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+.flex{
+    display: flex;
 }
