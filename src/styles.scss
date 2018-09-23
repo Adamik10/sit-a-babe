@@ -1,36 +1,40 @@
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+// @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-*{
-  box-sizing: content-box;
-}
 // ---------------------------------------------------------------------------- NAV MAIN
 .app-name{
     font-family: 'Fugaz One', cursive;
     font-size: 1.2em;
+    color: white;
 }
 #nav-logo{
-    max-height: 80%;
-    margin-right: 0.3em;
+    max-height: 60%;
+    margin-right: 0.5em;
     margin-left: 3em;
 }
 .example-spacer {
   flex: 1 1 auto;
 }
+button, span{
+    color: white;
+}
 // ---------------------------------------------------------------------------- HOME
-.to-middle-spager{
-    height: 12vh;
+.to-middle-spacer{
+    height: 15vh;
+}
+.to-middle-spacer-half{
+    height: 7.5vh;
 }
 h2{
     font-family: 'Fugaz One', cursive;
     font-size: 1em;
     text-align: center;
-    color: #673AB7;
+    color: #E57373;
 }
 h1{
     font-family: 'Fugaz One', cursive;
     font-size: 6em;
     text-align: center;
-    color: #673AB7;
+    color: #E57373;
 }
 .img-in-the-middle{
     margin-left: auto;
@@ -39,4 +43,88 @@ h1{
 }
 .flex{
     display: flex;
+    justify-content: center;
+}
+.full-width-img{
+    position: absolute;
+    top: 95vh;
+    left: 0px;
+    width: 100%;
+}
+.text-center{
+    text-align: center;
+}
+.middle-text{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50em;
+}
+.after-absolute-text{
+    margin-top: 60vh;
+}
+.center{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+.center{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+#center{
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+// ---------------------------------------------------------------------------- SIGNUP
+.flex div {
+    display: flex;
+}
+.divide-middle{
+    padding-left: 2em;
+    padding-right: 2em;
+}
+.mat-stroked-button p{
+    color: #FF1744;
+}
+.form-field-wrapper-single{
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 30em;
+    margin-left: auto;
+    margin-right: auto;
+}
+.mat-form-field{
+    width: 100%;
+}
+.example-small-box, .example-large-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 8px;
+}
+.example-small-box {
+  height: 100px;
+  width: 100px;
+}
+.example-large-box {
+  height: 300px;
+  width: 300px;
+}
+.container{
+    width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.mat-datepicker-toggle .mat-icon-button .mat-button-wrapper .mat-datepicker-toggle-default-icon{
+    color: rgb(59, 59, 59);
+}
+.mat-calendar-period-button .mat-button-wrapper {
+    color: black;
 }

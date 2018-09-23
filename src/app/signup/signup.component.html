@@ -1,3 +1,127 @@
-<p>
-  signup works!
-</p>
+<div class="to-middle-spacer-half"></div>
+
+<div class="container">
+  <p class="text-center middle-text">
+    First, please tell us a bit about yourself. Are you a ..?
+  </p>
+</div>
+
+<div class="container">
+
+  <mat-tab-group dynamicHeight mat-stretch-tabs>
+    <mat-tab label="Parent">
+      <div class="mat-elevation-z4">
+
+        <div class="to-middle-spacer-half"></div>
+        <div class="container flex">
+          <form [formGroup]='parentSignup'>
+        
+            <!-- Value: {{parentSignup.value | json}} -->
+        
+            <div class="form-field-wrapper-single">
+              <mat-form-field>
+                <input matInput placeholder="First Name" formControlName="firstNameParent">
+              </mat-form-field>
+            </div>
+        
+            <div class="form-field-wrapper-single">
+              <mat-form-field>
+                <input matInput placeholder="Last Name" formControlName="lastNameParent">
+              </mat-form-field>
+            </div>
+
+            <div class="form-field-wrapper-single">
+              <mat-form-field>
+                <input matInput [matDatepicker]="dateOfBirthPickerParent" placeholder="Your date of birth" formControlName="dateOfBirthParent">
+                <mat-datepicker-toggle matSuffix [for]="dateOfBirthPickerParent"></mat-datepicker-toggle>
+                <mat-datepicker #dateOfBirthPickerParent startView="year" [startAt]="startDate"></mat-datepicker>
+              </mat-form-field>
+            </div>
+        
+            <div class="to-middle-spacer-half"></div>
+            <div class="form-field-wrapper-single">
+              <mat-form-field>
+                <input matInput placeholder="Email" formControlName="emailParent">
+              </mat-form-field>
+            </div>
+
+            <div class="form-field-wrapper-single">
+              <mat-form-field>
+                <input matInput placeholder="Password" formControlName="passwordParent">
+              </mat-form-field>
+            </div>
+
+            <div class="form-field-wrapper-single">
+              <mat-form-field>
+                <input matInput placeholder="Repeat Password" formControlName="passwordParentRepeat">
+              </mat-form-field>
+            </div>
+        
+          </form>
+        </div>
+
+
+
+      </div>
+    </mat-tab>
+    <mat-tab label="Sitter">
+      <div class="mat-elevation-z4">
+
+
+        <div class="to-middle-spacer-half"></div>
+        <div class="container flex">
+          <form [formGroup]='sitterSignup'>
+        
+            <!-- Value: {{sitterSignup.value | json}} -->
+        
+            <div class="form-field-wrapper-single">
+              <mat-form-field>
+                <input matInput placeholder="First Name" formControlName="firstNameSitter">
+              </mat-form-field>
+            </div>
+        
+            <div class="form-field-wrapper-single">
+              <mat-form-field>
+                <input matInput placeholder="Last Name" formControlName="lastNameSitter">
+              </mat-form-field>
+            </div>
+
+            <div class="form-field-wrapper-single">
+              <mat-form-field>
+                <input matInput [matDatepicker]="dateOfBirthPickerSitter" placeholder="Your date of birth" formControlName="dateOfBirthSitter">
+                <mat-datepicker-toggle matSuffix [for]="dateOfBirthPickerSitter"></mat-datepicker-toggle>
+                <mat-datepicker #dateOfBirthPickerSitter startView="year" [startAt]="startDate"></mat-datepicker>
+              </mat-form-field>
+            </div>
+        
+            <div class="to-middle-spacer-half"></div>
+            <div class="form-field-wrapper-single">
+              <mat-form-field>
+                <input matInput placeholder="Email" formControlName="emailSitter">
+              </mat-form-field>
+            </div>
+            
+            <div class="form-field-wrapper-single">
+              <mat-form-field>
+                <input matInput placeholder="Password" formControlName="passwordSitter">
+              </mat-form-field>
+            </div>
+            
+            <div class="form-field-wrapper-single">
+              <mat-form-field>
+                <input matInput placeholder="Repeat Password" formControlName="passwordSitterRepeat">
+              </mat-form-field>
+            </div>
+        
+          </form>
+        </div>
+
+
+
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+</div>
+
+<!--<router-outlet></router-outlet> -->
