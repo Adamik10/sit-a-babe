@@ -21,12 +21,18 @@
             <div class="form-field-wrapper-single">
               <mat-form-field>
                 <input matInput placeholder="First Name" formControlName="firstNameParent">
+                <mat-error *ngIf='firstNameParent.invalid && firstNameParent.touched'>
+                  Your name should be at least 2 characters long.
+                </mat-error>
               </mat-form-field>
             </div>
         
             <div class="form-field-wrapper-single">
               <mat-form-field>
                 <input matInput placeholder="Last Name" formControlName="lastNameParent">
+                <mat-error *ngIf='lastNameParent.invalid && lastNameParent.touched'>
+                  Your last name should be at least 2 characters long.
+                </mat-error>
               </mat-form-field>
             </div>
 
@@ -35,6 +41,9 @@
                 <input matInput [matDatepicker]="dateOfBirthPickerParent" placeholder="Your date of birth" formControlName="dateOfBirthParent">
                 <mat-datepicker-toggle matSuffix [for]="dateOfBirthPickerParent"></mat-datepicker-toggle>
                 <mat-datepicker #dateOfBirthPickerParent startView="year" [startAt]="startDate"></mat-datepicker>
+                <mat-error *ngIf='dateOfBirthParent.invalid && dateOfBirthParent.touched'>
+                  Please enter your date of birth.
+                </mat-error>
               </mat-form-field>
             </div>
         
@@ -42,21 +51,33 @@
             <div class="form-field-wrapper-single">
               <mat-form-field>
                 <input matInput placeholder="Email" formControlName="emailParent">
+                <mat-error *ngIf='emailParent.invalid && emailParent.touched'>
+                  Please enter a valid email.
+                </mat-error>
               </mat-form-field>
             </div>
 
             <div class="form-field-wrapper-single">
               <mat-form-field>
                 <input matInput placeholder="Password" formControlName="passwordParent">
+                <mat-hint>8 characters (at least one number.)</mat-hint>
+                <mat-error *ngIf='passwordParent.invalid && passwordParent.touched'>
+                  Please enter a valid password.
+                </mat-error>
               </mat-form-field>
             </div>
 
             <div class="form-field-wrapper-single">
               <mat-form-field>
                 <input matInput placeholder="Repeat Password" formControlName="passwordParentRepeat">
+                <mat-error *ngIf='passwordParentRepeat.invalid && passwordParentRepeat.touched'>
+                  Please enter a valid password.
+                </mat-error>
               </mat-form-field>
             </div>
         
+            <button mat-raised-button color="accent" id="buttonSignUpParent" class="signupButtons">Sign up</button>
+
           </form>
         </div>
 
@@ -64,6 +85,7 @@
 
       </div>
     </mat-tab>
+
     <mat-tab label="Sitter">
       <div class="mat-elevation-z4">
 
@@ -77,12 +99,18 @@
             <div class="form-field-wrapper-single">
               <mat-form-field>
                 <input matInput placeholder="First Name" formControlName="firstNameSitter">
+                <mat-error *ngIf='firstNameSitter.invalid && firstNameSitter.touched'>
+                  Your name should be at least 2 characters long.
+                </mat-error>
               </mat-form-field>
             </div>
         
             <div class="form-field-wrapper-single">
               <mat-form-field>
                 <input matInput placeholder="Last Name" formControlName="lastNameSitter">
+                <mat-error *ngIf='lastNameSitter.invalid && lastNameSitter.touched'>
+                  Your last name should be at least 2 characters long.
+                </mat-error>
               </mat-form-field>
             </div>
 
@@ -91,6 +119,9 @@
                 <input matInput [matDatepicker]="dateOfBirthPickerSitter" placeholder="Your date of birth" formControlName="dateOfBirthSitter">
                 <mat-datepicker-toggle matSuffix [for]="dateOfBirthPickerSitter"></mat-datepicker-toggle>
                 <mat-datepicker #dateOfBirthPickerSitter startView="year" [startAt]="startDate"></mat-datepicker>
+                <mat-error *ngIf='dateOfBirthSitter.invalid && dateOfBirthSitter.touched'>
+                  Please enter your date of birth.
+                </mat-error>
               </mat-form-field>
             </div>
         
@@ -98,21 +129,33 @@
             <div class="form-field-wrapper-single">
               <mat-form-field>
                 <input matInput placeholder="Email" formControlName="emailSitter">
+                <mat-error *ngIf='emailSitter.invalid && emailSitter.touched'>
+                  Please enter a valid email.
+                </mat-error>
               </mat-form-field>
             </div>
             
             <div class="form-field-wrapper-single">
               <mat-form-field>
                 <input matInput placeholder="Password" formControlName="passwordSitter">
+                <mat-hint>8 characters (at least one number.)</mat-hint>
+                <mat-error *ngIf='passwordSitter.invalid && passwordSitter.touched'>
+                  Please enter a valid password.
+                </mat-error>
               </mat-form-field>
             </div>
             
             <div class="form-field-wrapper-single">
               <mat-form-field>
                 <input matInput placeholder="Repeat Password" formControlName="passwordSitterRepeat">
+                <mat-error *ngIf='passwordSitterRepeat.invalid && passwordSitterRepeat.touched'>
+                  Please enter a valid password.
+                </mat-error>
               </mat-form-field>
             </div>
         
+            <button mat-raised-button color="accent" id="buttonSignUpSitter" class="signupButtons">Sign up</button>
+
           </form>
         </div>
 

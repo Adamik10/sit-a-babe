@@ -24,7 +24,9 @@ export class SignupComponent implements OnInit {
         Validators.maxLength(22)
       ]],
       lastNameParent: ['', [
-        Validators.required
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(22)
       ]],
       dateOfBirthParent: ['', [
         Validators.required,
@@ -38,12 +40,12 @@ export class SignupComponent implements OnInit {
       ]],
       passwordParent: ['', [
         Validators.required,
-        Validators.minLength(6),
+        Validators.minLength(8),
         Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$')
       ]],
       passwordParentRepeat: ['', [
         Validators.required,
-        Validators.minLength(6),
+        Validators.minLength(8),
         Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$')
       ]]
     })
@@ -72,15 +74,52 @@ export class SignupComponent implements OnInit {
       ]],
       passwordSitter: ['', [
         Validators.required,
-        Validators.minLength(6),
+        Validators.minLength(8),
         Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$')
       ]],
       passwordSitterRepeat: ['', [
         Validators.required,
-        Validators.minLength(6),
+        Validators.minLength(8),
         Validators.pattern('^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)$')
       ]]
     })
   }
 
+  get firstNameParent() {
+    return this.parentSignup.get('firstNameParent')
+  }
+  get lastNameParent() {
+    return this.parentSignup.get('lastNameParent')
+  }
+  get dateOfBirthParent() {
+    return this.parentSignup.get('dateOfBirthParent')
+  }
+  get emailParent() {
+    return this.parentSignup.get('emailParent')
+  }
+  get passwordParent() {
+    return this.parentSignup.get('passwordParent')
+  }
+  get passwordParentRepeat() {
+    return this.parentSignup.get('passwordParentRepeat')
+  }
+
+  get firstNameSitter() {
+    return this.sitterSignup.get('firstNameSitter')
+  }
+  get lastNameSitter() {
+    return this.sitterSignup.get('lastNameSitter')
+  }
+  get dateOfBirthSitter() {
+    return this.sitterSignup.get('dateOfBirthSitter')
+  }
+  get emailSitter() {
+    return this.sitterSignup.get('emailSitter')
+  }
+  get passwordSitter() {
+    return this.sitterSignup.get('passwordSitter')
+  }
+  get passwordSitterRepeat() {
+    return this.sitterSignup.get('passwordSitterRepeat')
+  }
 }
