@@ -1,0 +1,93 @@
+.example-card {
+    display: inline-block;
+    width: 300px;
+    height: 500px;
+    max-width: 300px;
+    max-height: 500px;
+    margin-top: 3em;
+    margin-left: 2em;
+};
+
+mat-card-header mat-card-title {
+    font-size: 1.2em;
+    color: white;
+    margin-bottom: 3px;
+}
+
+img.mat-card-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+mat-card-header.mat-card-header {
+    position: absolute;
+    top: 1em;
+    left: 1em;
+}
+
+mat-card.mat-card {
+    padding-top: 0px;
+}
+
+.darkener{
+    background: linear-gradient(-20deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.308), rgba(0, 0, 0, 0.884));
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    height: 300px;
+}
+
+mat-card-subtitle.headerSubtitle{
+    color: rgba(255, 255, 255, 0.664);
+}
+
+mat-card-subtitle{
+    margin-bottom: 2px;
+}
+
+.userIntro{
+    height: 90px;
+}
+
+mat-card-actions.mat-card-actions{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+button.fullWidthButton{
+    width: 100%;
+}
+
+button.mat-stroked-button{
+    color: #E57373;
+    border: none;
+    outline: none;
+}
+button.mat-stroked-button:hover{
+    background-color: rgb(241, 220, 220);
+    color: white;
+}
+button.mat-stroked-button span.mat-button-wrapper{
+    color:  #E57373;
+}
+button.mat-stroked-button span.mat-button-wrapper:hover{
+    color:  white;
+}
+.noMargin{
+    margin: 0px;
+}
+
+#fillerspaceBelowFilters{
+    display: inline-block;
+    width: 20%;
+    top: 64px;
+    left: 0px;
+    height: 100%;
+    background-color: rgb(209, 209, 209);
+}
+#browseListContainer{
+    display: inline-block;
+    width: 80%
+}
