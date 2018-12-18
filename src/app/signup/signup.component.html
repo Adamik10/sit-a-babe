@@ -1,8 +1,9 @@
 <div class="to-middle-spacer-half"></div>
+<div class="to-middle-spacer-half"></div>
 
 <div class="container">
   <p class="text-center middle-text">
-    First, please tell us a bit about yourself. Are you a ..?
+    First, please tell us a bit about yourself. <br>Are you a ..?<br><br>
   </p>
 </div>
 
@@ -60,7 +61,7 @@
             <div class="form-field-wrapper-single">
               <mat-form-field>
                 <input matInput placeholder="Password" formControlName="passwordParent">
-                <mat-hint>8 characters (at least one number.)</mat-hint>
+                <mat-hint>Min. 8 characters (at least one number)</mat-hint>
                 <mat-error *ngIf='passwordParent.invalid && passwordParent.touched'>
                   Please enter a valid password.
                 </mat-error>

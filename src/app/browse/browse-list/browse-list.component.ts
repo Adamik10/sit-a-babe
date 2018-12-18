@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { userService } from 'src/app/common/user.service';
+import { User } from 'src/app/common/user.model';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-browse-list',
@@ -7,8 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrowseListComponent implements OnInit {
 
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  
   users = [
     {
+      id: "rgsfsdfae5ef54ff",
       name: "Saska", 
       surname: "Labusova", 
       birth_date : "23/10/1994", 
@@ -21,6 +32,7 @@ export class BrowseListComponent implements OnInit {
       picture_location: "src/assets/img/users/saska.jpg"
     },
     {
+      id: "wef1e51fw5e1fwe5f1",
       name: "Adam",
       surname: "Antal",
       birth_date: "10/10/1994",
@@ -33,6 +45,7 @@ export class BrowseListComponent implements OnInit {
       picture_location: "src/assets/img/users/adam.jpg"
     },
     {
+      id: "5ef5ef5sf4qw5dfwq5fd",
       name: "Katarina",
       surname: "Kukavica",
       birth_date: "30/6/1995",
@@ -45,6 +58,7 @@ export class BrowseListComponent implements OnInit {
       picture_location: "src/assets/img/users/katka.jpg"
     },
     {
+      id: "5wef2awd6qwd4qw9fc4ffe",
       name: "Daddy",
       surname: "One",
       birth_date: "30/6/1995",
@@ -57,6 +71,7 @@ export class BrowseListComponent implements OnInit {
       picture_location: "src/assets/img/users/daddy1.jpg",
       children: [
         {
+          id: "89ew5va15d1qw1fd4s2ce4f",
           name: "Autumn",
           birth_date: "20/9/2006",
           location: "Copemhagen",
@@ -71,12 +86,9 @@ export class BrowseListComponent implements OnInit {
           ]
         }
       ]
-    }
-  ];
+    } 
+  ]; 
 
-  constructor() { }
 
-  ngOnInit() {
-  }
 
 }

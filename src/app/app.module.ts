@@ -2,8 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatInputModule, MatProgressSpinnerModule, MatCardModule, MatMenuModule, MatIconModule, 
-  MatTabsModule, MatStepperModule, MatDatepickerModule, MatNativeDateModule  } from '@angular/material';
+  MatTabsModule, MatStepperModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule  } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import 'hammerjs';
 
@@ -18,6 +19,14 @@ import { BrowseComponent } from './browse/browse.component';
 import { ProfileComponent } from './profile/profile.component';
 import { BrowseListComponent } from './browse/browse-list/browse-list.component';
 import { FiltersComponent } from './browse/filters/filters.component';
+
+import { HttpClientModule } from "@angular/common/http";
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from '../environments/environment';
+
+
+export const firebaseConfig = environment.firebase;
 
 @NgModule({
   declarations: [
@@ -37,8 +46,12 @@ import { FiltersComponent } from './browse/filters/filters.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatButtonModule, MatCheckboxModule, MatToolbarModule, MatInputModule, MatProgressSpinnerModule, MatCardModule, MatMenuModule, MatIconModule, 
-    MatTabsModule, MatStepperModule, MatDatepickerModule, MatNativeDateModule,
-    ReactiveFormsModule
+    MatTabsModule, MatStepperModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule,
+    ReactiveFormsModule,
+    MatSlideToggleModule,
+    HttpClientModule,
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(environment.firebase),
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,6 +1,54 @@
 <div id="filtersContainer">
-    <h3>location</h3>
-    <h3>age</h3>
-    <h3>gender</h3>
-    <h3>occupation</h3>
+    <div id="filtersInnerContainer">
+        <mat-form-field class="full-width">
+            <input matInput placeholder="location">
+        </mat-form-field>
+
+        <mat-form-field class="half-width">
+            <input matInput placeholder="age from">
+        </mat-form-field>
+        <p class="inline-block-p"> - </p>
+        <mat-form-field class="half-width">
+            <input matInput placeholder="age to">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select [(value)]="selected">
+                <mat-option *ngFor="let gender of genders" [value]="gender.value">
+                    {{gender.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-select [(value)]="selected">
+                <mat-option *ngFor="let occupation of occupations" [value]="occupation.value">
+                    {{occupation.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <h3>availability</h3>
+        <mat-slide-toggle primary unchecked>
+            Mondays
+        </mat-slide-toggle>
+        <mat-slide-toggle primary unchecked>
+            Tuesdays
+        </mat-slide-toggle>
+        <mat-slide-toggle primary unchecked>
+            Wednesdays
+        </mat-slide-toggle>
+        <mat-slide-toggle primary unchecked>
+            Thursdays
+        </mat-slide-toggle>
+        <mat-slide-toggle primary unchecked>
+            Fridays
+        </mat-slide-toggle>
+        <mat-slide-toggle primary unchecked>
+            Saturdays
+        </mat-slide-toggle>
+        <mat-slide-toggle primary unchecked>
+            Sundays
+        </mat-slide-toggle>
+    </div>
 </div>
