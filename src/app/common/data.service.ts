@@ -8,8 +8,4 @@ import { userService } from './user.service';
 export class dataService {
 
     constructor(private http: HttpClient, private userService: userService) { }
-
-    storeUser() {
-        this.http.put('https://sit-a-baby.firebaseio.com/users.json', this.userService.getUsers);
-    } 
 }

@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatInputModule, MatProgressSpinnerModule, MatCardModule, MatMenuModule, MatIconModule, 
   MatTabsModule, MatStepperModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule  } from '@angular/material';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import 'hammerjs';
@@ -24,6 +24,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
+import { userService } from './common/user.service';
+import { customFormValidators } from './common/formValidators';
 
 
 export const firebaseConfig = environment.firebase;
@@ -53,7 +55,7 @@ export const firebaseConfig = environment.firebase;
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase),
   ],
-  providers: [],
+  providers: [userService, customFormValidators],
   bootstrap: [AppComponent]
 })
 

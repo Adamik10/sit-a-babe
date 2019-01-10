@@ -3,6 +3,7 @@ import { userService } from 'src/app/common/user.service';
 import { User } from 'src/app/common/user.model';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { HttpClient } from '@angular/common/http';
+import { app } from 'firebase';
 
 @Component({
   selector: 'app-browse-list',
@@ -11,12 +12,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class BrowseListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: userService) {}
 
   ngOnInit() {
   }
-
   
+
+
   users = [
     {
       id: "rgsfsdfae5ef54ff",
@@ -87,8 +89,26 @@ export class BrowseListComponent implements OnInit {
         }
       ]
     } 
-  ]; 
+  ];
+  /*
+  onAddUser(userInfo: object) {
+    this.users.push({
+      id: this.generateId(),
+      name: userInfo.name,
+      surname: userInfo.surname,
+      birth_date: userInfo.birth_date,
+      email: userInfo.email,
+      password: userInfo.password,
+      user_type: userInfo.user_type,
+      occupation: userInfo.occupation,
+      location: userInfo.location,
+      introduction: userInfo.introduction,
+      picture_location: userInfo.picture_location
+    })
+  }
 
-
-
+  private generateId() {
+    return Math.round(Math.random() * 10000);
+  }
+  */
 }

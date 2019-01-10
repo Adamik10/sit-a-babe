@@ -10,5 +10,5 @@ export class User {
     location: string;
     introduction: string;
     picture_location: string;
-    // children: [];
+    children: string;
 }
