@@ -4,21 +4,34 @@ import { User } from 'src/app/common/user.model';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { HttpClient } from '@angular/common/http';
 import { app } from 'firebase';
+import { Response } from 'selenium-webdriver/http';
 
 @Component({
-  selector: 'app-browse-list',
-  templateUrl: './browse-list.component.html',
-  styleUrls: ['./browse-list.component.scss']
+  selector: "app-browse-list",
+  templateUrl: "./browse-list.component.html",
+  styleUrls: ["./browse-list.component.scss"]
 })
 export class BrowseListComponent implements OnInit {
-
   constructor(private userService: userService) {}
 
+  users = [];
+
   ngOnInit() {
+    this.userService.getAllUsers().subscribe(
+      //(error) => console.log(error),
+      (response: Response) => {
+        //console.log(response);
+        //looping through what we got which is an object
+        for (let key in response) {
+          let value = response[key];
+          this.users.push(value)
+        }
+        console.log(this.users);
+      }
+    );
   }
-  
 
-
+  /*
   users = [
     {
       id: "rgsfsdfae5ef54ff",
@@ -89,7 +102,7 @@ export class BrowseListComponent implements OnInit {
         }
       ]
     } 
-  ];
+  ]; */
   /*
   onAddUser(userInfo: object) {
     this.users.push({
