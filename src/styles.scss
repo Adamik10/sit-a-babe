@@ -1,5 +1,9 @@
 // @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
+#overflowHidden {
+    overflow: hidden;
+}
+
 // ---------------------------------------------------------------------------- NAV MAIN
 .app-name{
     font-family: 'Fugaz One', cursive;
@@ -23,6 +27,9 @@ button, span.mat-button-wrapper{
 }
 .to-middle-spacer-half{
     height: 7.5vh;
+}
+.to-middle-spacer-third{
+    height: 5vh;
 }
 h2{
     font-family: 'Fugaz One', cursive;
@@ -142,3 +149,4 @@ mat-toolbar{
     left: 0px;
     z-index: 2000;
 }
+

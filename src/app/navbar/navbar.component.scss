@@ -1,0 +1,14 @@
+#profileContainer{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+mat-sidenav{
+  background-color: rgb(233, 189, 181);
+  z-index: 5000;
+}

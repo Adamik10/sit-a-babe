@@ -80,22 +80,23 @@ button.mat-stroked-button span.mat-button-wrapper:hover{
 }
 
 #fillerspaceBelowFilters{
+    position: relative;
     display: inline-block;
     width: 25%;
     max-width: 350px;
     height: 99vh;
     // background-color: rgb(201, 86, 86);  
     margin-left: 0px;
-    margin-right: auto;
+    margin-right: 0px;
 }
 #browseListContainer{
+    position: relative;
     display: inline-block;
-    width: 75%;
-    max-width: 75%;
+    width: 74%;
+    max-width: 74%;
     min-height: 99vh;
     // background-color: aquamarine;
-    margin-left: auto;
-    margin-right: auto;
     padding-top: 64px;
     padding-left: 50px;
+    top: 0px;
 }

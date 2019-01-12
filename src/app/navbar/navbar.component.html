@@ -10,7 +10,13 @@
     <button mat-button routerLink="contact">Contact</button>
     <button mat-button routerLink="login">Login</button>
     <button mat-button routerLink="signup">Sign up</button>
-    <button mat-button routerLink="profile">Profile</button>
+    <button mat-button (click)="profileSidebar.toggle(); toggleSidebar()">Profile</button>
 
   </mat-toolbar-row>
 </mat-toolbar>
+
+<mat-sidenav-container id="profileContainer" (backdropClick)="profileSidebar.toggle(); toggleSidebar()">
+  <mat-sidenav #profileSidebar (keydown.escape)="profileSidebar.close()" position="end">
+    <app-profile></app-profile>
+  </mat-sidenav>
+</mat-sidenav-container>

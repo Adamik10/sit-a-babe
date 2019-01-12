@@ -1,4 +1,105 @@
-<div class="to-middle-spacer-half"></div>
-<p>
-  profile works!
-</p>
+<div id="clickable">
+  <div class="to-middle-spacer-half"></div>
+  
+  <div class="profileSection" id="topSectionProfile">
+    <fa name="times" size="4x" (click)="close()" class="profileClose"></fa>
+  </div>
+  
+  <div class="profileSection">
+    <div class="profilePicInfoContainer">
+      <h2 class="profileHeadline">General</h2>
+      <div class="row">
+        <p class="inputNameProfileStatic">Name</p>
+        <p class="inputValueProfileStatic">Alexandra</p>
+      </div>
+      <div class="row">
+        <p class="inputNameProfileStatic">Surname</p>
+        <p class="inputValueProfileStatic">Labusova</p>
+      </div>
+      <div class="row">
+        <p class="inputNameProfileStatic">Age</p>
+        <p class="inputValueProfileStatic">24</p>
+      </div>
+    </div>
+    <div class="profilePicPicContainer">
+      <div id="profilePictureContainer"><img src="src/assets/img/users/sitter_default.PNG" alt="profile picture" id="profilePicture"></div>
+    </div>
+  </div>
+  
+    <form [formGroup]='editProfileForm' (ngSubmit)="onSaveEditProfile()" id="editProfileForm">
+
+      <div class="profileSection">
+
+        <div class="profileSectionLeft">
+          <h2 class="profileHeadline">Profile settings</h2>
+          <div class="rowHigher">
+            <p class="inputNameProfile">Profile picture</p> <input matInput value="xyz" formControlName="profilePicLink">
+          </div>
+          <div class="rowHigher">
+            <p class="inputNameProfile">Password</p> <input matInput value="xyz" formControlName="currentPass">
+          </div>
+          <div class="rowHigher">
+            <p class="inputNameProfile">New password</p> <input matInput value="xyz" formControlName="newPass">
+          </div>          
+        </div>
+    
+        <div class="profileSectionRight">
+          <h2 class="profileHeadline">About you</h2>
+          <div class="rowHigher">
+            <p class="inputNameProfile">Occupation</p> <input matInput value="xyz" formControlName="occupation">
+          </div>
+          <div class="rowHigher">
+            <p class="inputNameProfile">Introduction</p> 
+            <textarea matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" value="xyz" formControlName="introduction"></textarea>
+          </div>
+          <div class="rowHigher">
+            <p class="inputNameProfile">Location</p> <input matInput value="xyz" formControlName="location">
+          </div>
+        </div>
+
+      </div>
+    
+      <div class="profileSection">
+
+        <div class="profileSectionLeft" id="deadCenter">
+          <button mat-raised-button color="accent" id="buttonSaveEditProfile" class="saveEditProfile">Save changes</button>
+        </div>
+
+        <div class="profileSectionRight">
+          <h2 class="profileHeadline">Desired days</h2>
+        
+          <div class="row">
+            <mat-slide-toggle accent unchecked formControlName="Mondays"></mat-slide-toggle>
+            <p class="toggleLabel">Mondays</p>
+          </div>
+          <div class="row">
+            <mat-slide-toggle accent unchecked formControlName="Tuesdays"></mat-slide-toggle>
+            <p class="toggleLabel">Tuesdays</p>
+          </div>
+          <div class="row">
+            <mat-slide-toggle accent unchecked formControlName="Wednesdays"></mat-slide-toggle>
+            <p class="toggleLabel">Wednesdays</p>
+          </div>
+          <div class="row">
+            <mat-slide-toggle accent unchecked formControlName="Thursdays"></mat-slide-toggle>
+            <p class="toggleLabel">Thursdays</p>
+          </div>
+          <div class="row">
+            <mat-slide-toggle accent unchecked formControlName="Fridays"></mat-slide-toggle>
+            <p class="toggleLabel">Fridays</p>
+          </div>
+          <div class="row">
+            <mat-slide-toggle accent unchecked formControlName="Saturdays"></mat-slide-toggle>
+            <p class="toggleLabel">Saturdays</p>
+          </div>
+          <div class="row">
+            <mat-slide-toggle accent unchecked formControlName="Sundays"></mat-slide-toggle>
+            <p class="toggleLabel">Sundays</p>
+          </div>
+        </div>
+        
+      </div>
+
+    </form>
+
+</div>

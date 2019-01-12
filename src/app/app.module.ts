@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatInputModule, MatProgressSpinnerModule, MatCardModule, MatMenuModule, MatIconModule, 
   MatTabsModule, MatStepperModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule  } from '@angular/material';
 import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSidenavModule } from "@angular/material";
+import { AngularFontAwesomeModule } from "angular-font-awesome";
 
 import 'hammerjs';
 
@@ -47,16 +49,28 @@ export const firebaseConfig = environment.firebase;
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule, MatCheckboxModule, MatToolbarModule, MatInputModule, MatProgressSpinnerModule, MatCardModule, MatMenuModule, MatIconModule, 
-    MatTabsModule, MatStepperModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatToolbarModule,
+    MatInputModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatTabsModule,
+    MatStepperModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSelectModule,
     ReactiveFormsModule,
     MatSlideToggleModule,
     HttpClientModule,
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase),
+    MatSidenavModule,
+    AngularFontAwesomeModule
   ],
-  providers: [userService, customFormValidators],
+  providers: [userService, customFormValidators, ProfileComponent],
   bootstrap: [AppComponent]
 })
-
-export class AppModule { }
+export class AppModule {}

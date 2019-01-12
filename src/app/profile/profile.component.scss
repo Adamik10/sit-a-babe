@@ -1,0 +1,196 @@
+.profileClose {
+    color:rgb(255, 255, 255);
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
+.profileSection{
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-left: 2em;;
+    padding-right: 2em;
+    margin-top: 2em;
+}
+
+.profileEditIcon{
+    color: #FF1744;
+    cursor: pointer;
+}
+
+.profileHeadline {
+    color: white;
+    font-size: 1.5em;
+    text-align: right;
+    margin-bottom: 1em;
+}
+
+#clickable{
+    position: relative;
+    width: 70vw;
+}
+
+#topSectionProfile{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    padding-top: 3em;
+    z-index: 200;
+}
+
+.inputNameProfileStatic{
+    position: relative;
+    display: inline-block;
+    color: white;
+    opacity: 0.5;
+    margin-right: 2em;
+}
+
+.inputValueProfileStatic{
+    display: inline-block;
+    position: relative;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.inputNameProfile{
+    position: relative;
+    display: inline-block;
+    color: white;
+    opacity: 0.5;
+    margin-right: 2em;
+}
+
+div.rowHigher input {
+    width: 14em;
+    right: 0px;
+    display: inline-block;
+    position: relative;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    height: 2em;
+    background-color: rgba(226, 34, 0, 0.082);
+    color: white;
+    font-weight: 700;
+}
+
+div.rowHigher textarea {
+    width: 14em;
+    right: 0px;
+    display: inline-block;
+    position: relative;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    background-color: rgba(226, 34, 0, 0.082);
+    color: white;
+    font-weight: 700;
+}
+
+.profilePicInfoContainer{
+    display: inline-block;
+    width: 50%;
+    min-height: 10em;
+    text-align: right;
+    padding-right: 0em;
+}
+
+.profilePicPicContainer{
+    display: inline-block;
+    width: 50%;
+    min-height: 10em;
+}
+
+#profilePicture{
+    object-fit: cover;
+    width: 100%;
+}
+
+#profilePictureContainer{
+    width: 10em;
+    height: 10em;
+    border-radius: 5em;
+    overflow: hidden;
+    display: inline-block;
+    margin-left: 8em;
+}
+
+.row {
+    display: block;
+    width: 100%;
+    margin: 0px;
+    min-height: 2.5em;
+}
+
+.profileSectionLeft{
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    float: left;
+    height: 16em;
+    z-index: 50;
+}
+
+.profileSectionRight {
+    display: inline-block;
+    position: relative;
+    width: 50%;
+    float: right;
+    height: 16em;
+    z-index: 50;
+}
+
+.rowHigher{
+    position: relative;
+    display: block;
+    width: 100%;
+    margin: 0px;
+    display: flex; 
+    justify-content: flex-end;
+    margin-bottom: 1em;
+}
+
+div.profileSection mat-slide-toggle {
+    float: right;
+}
+
+#deadCenter{
+    display: flex;
+}
+
+#buttonSaveEditProfile{
+    height: 50%;
+    width: 50%;
+    margin-top: 9em;
+    border-radius: 1em;
+    background-color: rgba(255, 23, 69, 0);
+    border: solid 1px rgb(255, 255, 255);
+    box-shadow: none;
+}
+
+#buttonSaveEditProfile:hover{
+    height: 50%;
+    width: 50%;
+    margin-top: 9em;
+    border-radius: 1em;
+    background-color: rgb(255, 23, 69);
+    border: solid 1px rgba(255, 255, 255, 0);
+    box-shadow: none;
+}
+
+div.row mat-slide-toggle.mat-slide-toggle{
+    float: right;
+}
+
+.toggleLabel {
+    float: right;
+    margin-right: 2em;
+}
+
+.mat-slide-toggle-label{
+    height: 1em;
+}
