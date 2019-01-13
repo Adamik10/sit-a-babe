@@ -4,6 +4,7 @@ import { userService } from '../common/user.service';
 import { User } from '../common/user.model';
 import { customFormValidators } from '../common/formValidators';
 import { authService } from "../common/auth.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-signup",
@@ -20,7 +21,8 @@ export class SignupComponent implements OnInit {
     private fb: FormBuilder,
     private userService: userService,
     private customValidators: customFormValidators,
-    private authService: authService
+    private authService: authService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -194,6 +196,7 @@ export class SignupComponent implements OnInit {
       newParent.introduction = "This user has not filled out this field yet.";
       newParent.picture_location = "src/assets/img/users/daddy_default.PNG";
       newParent.children = "not specified";
+      newParent.deleted = false
       //console.log(newParent)
 
       this.userService
@@ -224,18 +227,19 @@ export class SignupComponent implements OnInit {
       newSitter.introduction = "This user has not filled out this field yet.";
       newSitter.picture_location = "src/assets/img/users/sitter_default.PNG";
       newSitter.children = "none";
+      newSitter.deleted = false;
       //console.log(newSitter)
 
-      this.userService
-        .storeNewUserSitter(newSitter)
-        .subscribe(
-          response =>
-            console.log(response) /*,
-          (error) => console.log(error)*/
-        );
+      this.userService.storeNewUserSitter(newSitter).subscribe(
+        //(error) => console.log(error),
+        (response: Response) => {
+          console.log(response);
+        }
+      );
 
-      this.authService.signUserUp(newSitter.email, newSitter.password)
+      /*this.authService.signUserUp(newSitter.email, newSitter.password)*/
     }
+    this.router.navigate(["/login"]);
   }
 
   generateNewUniqueId() {

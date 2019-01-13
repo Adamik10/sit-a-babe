@@ -79,6 +79,10 @@ button.mat-stroked-button span.mat-button-wrapper:hover{
     margin: 0px;
 }
 
+
+
+
+
 #fillerspaceBelowFilters{
     position: relative;
     display: inline-block;
@@ -99,4 +103,59 @@ button.mat-stroked-button span.mat-button-wrapper:hover{
     padding-top: 64px;
     padding-left: 50px;
     top: 0px;
+}
+
+#filtersContainer{
+    display: inline;
+    width: 25%;
+    max-width: 350px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100vh;
+    background-color: rgb(236, 236, 236);
+    padding-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#filtersInnerContainer{
+    margin-top: 10vh;
+    margin-bottom: auto;
+}
+
+h3{
+    font-size: 0.8em;
+    text-align: left;
+    color: #6C6C6C;
+    margin-top: 2em;
+}
+
+mat-option{
+    color: black;
+}
+
+div.mat-select-content mat-option.mat-option span.mat-option-text{
+    color: rgb(34, 34, 34);
+}
+
+.full-width{
+    width: 100%;
+}
+.half-width{
+    width: 30%;
+    display: inline-block;
+}
+.inline-block-p{
+    display: inline-block;
+    margin-right: 15px;
+    margin-left: 10px;
+}
+
+label.mat-form-field-label{
+    color: #6C6C6C;
+}
+
+mat-slide-toggle{
+    display: block;
 }

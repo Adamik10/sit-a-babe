@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
 
   currentUser;
   editProfileForm: FormGroup;
-  loadedAllUsers = []
+  loadedAllUsers = [];
 
   ngOnInit() {
     this.editProfileForm = this.fb.group({
@@ -38,20 +38,9 @@ export class ProfileComponent implements OnInit {
           )
         ]
       ],
-      newPass: [
-        ""
-      ],
-      occupation: [
-        "",
-        [Validators.minLength(4), Validators.maxLength(50)]
-      ],
-      introduction: [
-        "",
-        [
-          Validators.minLength(20),
-          Validators.maxLength(500)
-        ]
-      ],
+      newPass: [""],
+      occupation: ["", [Validators.minLength(4), Validators.maxLength(50)]],
+      introduction: ["", [Validators.minLength(20), Validators.maxLength(500)]],
       location: [
         "not set",
         [Validators.minLength(2), Validators.maxLength(20)]
@@ -88,18 +77,15 @@ export class ProfileComponent implements OnInit {
     return age;
   }
 
-  onSaveEditProfile(){
-
+  onSaveEditProfile(deleteToo) {
     //disable the save button until the action is done
-
 
     //get all users
     this.userService.getAllUsers().subscribe((response: Response) => {
-      
       // what is our users email
       this.currentUser = localStorage.getItem("currentUser");
       this.currentUser = JSON.parse(this.currentUser);
-      let currentUserEmail = this.currentUser.email
+      let currentUserEmail = this.currentUser.email;
 
       var keyOfOurUser;
 
@@ -107,42 +93,65 @@ export class ProfileComponent implements OnInit {
       for (let key in response) {
         let value = response[key];
         this.loadedAllUsers.push(value);
-        if(value.email == currentUserEmail ){
+        if (value.email == currentUserEmail) {
           keyOfOurUser = key;
         }
       }
 
-
       //find the one that is our logged in user
       for (var i = 0; i < this.loadedAllUsers.length; i++) {
         if (this.loadedAllUsers[i].email == currentUserEmail) {
-
           //now rewrite all this information with the one from the form
-          if (this.editProfileForm.value.newPass && this.currentUser.password && this.editProfileForm.value.newPass != '') {
-            if(this.editProfileForm.value.currentPass == this.currentUser.password){
-              this.loadedAllUsers[i].password = this.editProfileForm.value.newPass
+          if (
+            this.editProfileForm.value.newPass &&
+            this.currentUser.password &&
+            this.editProfileForm.value.newPass != ""
+          ) {
+            if (
+              this.editProfileForm.value.currentPass ==
+              this.currentUser.password
+            ) {
+              this.loadedAllUsers[
+                i
+              ].password = this.editProfileForm.value.newPass;
             }
           }
-          if (this.editProfileForm.value.occupation != this.currentUser.occupation) {
-            this.loadedAllUsers[i].occupation = this.editProfileForm.value.occupation;
-          }  
-          if (this.editProfileForm.value.location && this.currentUser.location) {
-            this.loadedAllUsers[i].location = this.editProfileForm.value.location
-          }  
-          if (this.editProfileForm.value.introduction && this.currentUser.introduction) {
-            this.loadedAllUsers[i].introduction = this.editProfileForm.value.introduction
-          }  
-          if (this.editProfileForm.value.profilePicLink.dirty && this.editProfileForm.value.profilePicLink.valid) {
-            this.loadedAllUsers[i].picture_location = this.editProfileForm.value.picture_location
+          if (
+            this.editProfileForm.value.occupation != this.currentUser.occupation
+          ) {
+            this.loadedAllUsers[
+              i
+            ].occupation = this.editProfileForm.value.occupation;
           }
-          console.log(JSON.stringify(this.loadedAllUsers[i]))
+          if (
+            this.editProfileForm.value.location &&
+            this.currentUser.location
+          ) {
+            this.loadedAllUsers[
+              i
+            ].location = this.editProfileForm.value.location;
+          }
+          if (
+            this.editProfileForm.value.introduction &&
+            this.currentUser.introduction
+          ) {
+            this.loadedAllUsers[
+              i
+            ].introduction = this.editProfileForm.value.introduction;
+          }
+          if (
+            this.editProfileForm.value.profilePicLink.dirty &&
+            this.editProfileForm.value.profilePicLink.valid
+          ) {
+            this.loadedAllUsers[
+              i
+            ].picture_location = this.editProfileForm.value.picture_location;
+          }
+          console.log(JSON.stringify(this.loadedAllUsers[i]));
 
-          //find the key ID
-
-
-          //make a new User User
+          //make a new user User
           const rewriteOldUser = new User();
-          rewriteOldUser.id = this.loadedAllUsers[i].id
+          rewriteOldUser.id = this.loadedAllUsers[i].id;
           rewriteOldUser.name = this.loadedAllUsers[i].name;
           rewriteOldUser.surname = this.loadedAllUsers[i].surname;
           rewriteOldUser.birth_date = this.loadedAllUsers[i].birth_date;
@@ -154,27 +163,32 @@ export class ProfileComponent implements OnInit {
           rewriteOldUser.introduction = this.loadedAllUsers[i].introduction;
           rewriteOldUser.picture_location = this.loadedAllUsers[i].picture_location;
           rewriteOldUser.children = this.loadedAllUsers[i].children;
+          if(deleteToo == true){
+            rewriteOldUser.deleted = true;
+          }else{
+            rewriteOldUser.deleted = this.loadedAllUsers[i].deleted;
+          }
 
-          
-          //save them in the database
+          //update the edited user in the database
           this.userService
             .editUser(keyOfOurUser, rewriteOldUser)
             .subscribe(
               response => console.log(response),
               error => console.log(error)
             );
-    
+
+          this.authService.logUserOut()
+          this.close()
           break;
         }
       }
-
-      //save the edited profiles in the db
-      
-
-    });    
-
-  
-
-
+    });
   }
+
+
+  deleteProfile(){
+    this.onSaveEditProfile(true)
+  }
+
+
 }

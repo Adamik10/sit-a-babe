@@ -196,3 +196,13 @@ div.row mat-slide-toggle.mat-slide-toggle{
 .mat-slide-toggle-label{
     height: 1em;
 }
+
+#deleteProfileLink{
+    display: block;
+    cursor: pointer;
+    color: rgb(0, 0, 0);
+    opacity: 0.5;
+    font-size: 0.7em;
+    text-align: center;
+    margin-top: 1em;
+}

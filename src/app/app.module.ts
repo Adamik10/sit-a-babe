@@ -3,7 +3,7 @@ import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatInputModule, MatProgressSpinnerModule, MatCardModule, MatMenuModule, MatIconModule, 
   MatTabsModule, MatStepperModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule  } from '@angular/material';
-import { ReactiveFormsModule, FormControl } from '@angular/forms';
+import { ReactiveFormsModule, FormControl, FormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSidenavModule } from "@angular/material";
 import { AngularFontAwesomeModule } from "angular-font-awesome";
@@ -35,6 +35,8 @@ import { AdminNavComponent } from './admin-portal/admin-nav/admin-nav.component'
 import { AuthGuard } from './common/auth-guard.service';
 import { AuthGuardAdmin } from './common/auth-guard-admin.service';
 import { AdminNewsComponent } from './admin-portal/admin-news/admin-news.component';
+import { PipeShorten } from './pipe-shorten.pipe';
+import { FilterLocationPipe } from './filter-location.pipe';
 
 
 export const firebaseConfig = environment.firebase;
@@ -55,6 +57,8 @@ export const firebaseConfig = environment.firebase;
     AdminPortalComponent,
     AdminNavComponent,
     AdminNewsComponent,
+    PipeShorten,
+    FilterLocationPipe
   ],
   imports: [
     BrowserModule,
@@ -79,9 +83,17 @@ export const firebaseConfig = environment.firebase;
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase),
     MatSidenavModule,
-    AngularFontAwesomeModule
+    AngularFontAwesomeModule,
+    FormsModule
   ],
-  providers: [userService, customFormValidators, ProfileComponent, authService, AuthGuard, AuthGuardAdmin],
+  providers: [
+    userService,
+    customFormValidators,
+    ProfileComponent,
+    authService,
+    AuthGuard,
+    AuthGuardAdmin
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

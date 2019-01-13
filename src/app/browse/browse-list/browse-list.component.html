@@ -1,11 +1,63 @@
+<div id="filtersContainer">
+  <div id="filtersInnerContainer">
+    <mat-form-field class="full-width">
+      <input matInput placeholder="location" [(ngModel)]="filterLocation">
+    </mat-form-field>
+
+    <mat-form-field class="half-width">
+      <input matInput placeholder="age from">
+    </mat-form-field>
+    <p class="inline-block-p"> - </p>
+    <mat-form-field class="half-width">
+      <input matInput placeholder="age to">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select [(value)]="selected">
+        <mat-option *ngFor="let gender of genders" [value]="gender.value">
+          {{gender.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput placeholder="occupation">
+    </mat-form-field>
+
+    <h3>availability</h3>
+    <mat-slide-toggle primary unchecked>
+      Mondays
+    </mat-slide-toggle>
+    <mat-slide-toggle primary unchecked>
+      Tuesdays
+    </mat-slide-toggle>
+    <mat-slide-toggle primary unchecked>
+      Wednesdays
+    </mat-slide-toggle>
+    <mat-slide-toggle primary unchecked>
+      Thursdays
+    </mat-slide-toggle>
+    <mat-slide-toggle primary unchecked>
+      Fridays
+    </mat-slide-toggle>
+    <mat-slide-toggle primary unchecked>
+      Saturdays
+    </mat-slide-toggle>
+    <mat-slide-toggle primary unchecked>
+      Sundays
+    </mat-slide-toggle>
+  </div>
+</div>
+
+
 <div id="fillerspaceBelowFilters"></div>
 <div id="browseListContainer">
 
-    <mat-card class="example-card" *ngFor="let user of users">
+    <mat-card class="example-card" *ngFor="let user of users | filterLocation:filterLocation">
       <div class="darkener"></div>
       <mat-card-header>
         <mat-card-title>{{user.name}} {{user.surname}}</mat-card-title>
-        <mat-card-subtitle class="headerSubtitle">{{user.occupation}}</mat-card-subtitle>
+        <mat-card-subtitle class="headerSubtitle">{{ user.location | shorten }}, {{ user.occupation | shorten }}</mat-card-subtitle>
       </mat-card-header>
       <img mat-card-image src="{{user.picture_location}}" alt="{{user.picture_location}}">
       <mat-card-content>
