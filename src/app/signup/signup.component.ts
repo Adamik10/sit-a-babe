@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms'
 import { userService } from '../common/user.service';
 import { User } from '../common/user.model';
 import { customFormValidators } from '../common/formValidators';
+import { authService } from "../common/auth.service";
 
 @Component({
   selector: "app-signup",
@@ -18,7 +19,8 @@ export class SignupComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userService: userService,
-    private customValidators: customFormValidators
+    private customValidators: customFormValidators,
+    private authService: authService
   ) {}
 
   ngOnInit() {
@@ -200,6 +202,8 @@ export class SignupComponent implements OnInit {
           (response) => console.log(response),
           (error) => console.log(error)
         );
+
+      this.authService.signUserUp(newParent.email, newParent.password);
     }
   }
 
@@ -229,6 +233,8 @@ export class SignupComponent implements OnInit {
             console.log(response) /*,
           (error) => console.log(error)*/
         );
+
+      this.authService.signUserUp(newSitter.email, newSitter.password)
     }
   }
 

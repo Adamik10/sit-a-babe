@@ -14,7 +14,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { ContactComponent } from './contact/contact.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { BrowseComponent } from './browse/browse.component';
@@ -27,7 +26,12 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 import { userService } from './common/user.service';
+import { authService }from './common/auth.service';
 import { customFormValidators } from './common/formValidators';
+import { ViewProfileComponent } from './view-profile/view-profile.component';
+import { AdminDashboardComponent } from './admin-portal/admin-dashboard/admin-dashboard.component';
+import { AdminPortalComponent } from './admin-portal/admin-portal.component';
+import { AdminNavComponent } from './admin-portal/admin-nav/admin-nav.component';
 
 
 export const firebaseConfig = environment.firebase;
@@ -37,13 +41,16 @@ export const firebaseConfig = environment.firebase;
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    ContactComponent,
     LoginComponent,
     SignupComponent,
     BrowseComponent,
     ProfileComponent,
     BrowseListComponent,
-    FiltersComponent
+    FiltersComponent,
+    ViewProfileComponent,
+    AdminDashboardComponent,
+    AdminPortalComponent,
+    AdminNavComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +77,7 @@ export const firebaseConfig = environment.firebase;
     MatSidenavModule,
     AngularFontAwesomeModule
   ],
-  providers: [userService, customFormValidators, ProfileComponent],
+  providers: [userService, customFormValidators, ProfileComponent, authService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

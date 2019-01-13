@@ -1,0 +1,35 @@
+#deadCenterContainer{
+    display: flex;
+    width: 100%;
+    height: 95vh;
+}
+
+.loginDirectContainer{
+    background-color: #E57373;
+    width: 20em;
+    color: white;
+    border-radius: 0.5em;
+    margin-top: 20vh;
+    height: 20em;
+}
+
+#loginButton{
+    background-color: #FF1744;
+    color: white;
+    width: 90%;
+}
+
+.rowLogin{
+    width: 100%;
+}
+
+.rowLogin .mat-form-field-flex{
+    background-color: white;
+}
+
+#loginHeading{
+    font-family: 'Fugaz One', cursive;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}

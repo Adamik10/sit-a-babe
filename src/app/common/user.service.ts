@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/common/user.model';
 import { HttpClient } from '@angular/common/http';
+import { authService } from './auth.service';
 
 
 @Injectable()
 export class userService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient /*, private authService: authService*/) {}
 
   getAllUsers() {
+    /*let tkn = this.authService.getToken()
+    console.log(tkn); */
     return this.http.get("https://sit-a-baby.firebaseio.com//users.json");
   }
 

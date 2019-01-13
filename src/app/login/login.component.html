@@ -1,4 +1,28 @@
 <div class="to-middle-spacer-half"></div>
-<p>
-  login works!
-</p> 
+
+<div id="deadCenterContainer">
+
+  <div class="container loginDirectContainer">
+    <h3 id="loginHeading">Login</h3>
+    <form [formGroup]='loginForm' (ngSubmit)="onLogin()">
+
+      <!-- Value: {{loginForm.value | json}} -->
+
+      <div class="form-field-wrapper-single rowLogin">
+        <mat-form-field>
+          <input matInput placeholder="Email" formControlName="emailLogin">
+        </mat-form-field>
+      </div>
+
+      <div class="form-field-wrapper-single rowLogin">
+        <mat-form-field>
+          <input matInput placeholder="Password" formControlName="passwordLogin">
+        </mat-form-field>
+      </div>
+
+      <button mat-raised-button color="accent" id="loginButton">Login</button>
+
+    </form>
+  </div>
+
+</div>
