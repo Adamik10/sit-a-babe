@@ -203,7 +203,7 @@ export class SignupComponent implements OnInit {
           (error) => console.log(error)
         );
 
-      this.authService.signUserUp(newParent.email, newParent.password);
+      // this.authService.signUserUp(newParent.email, newParent.password);
     }
   }
 

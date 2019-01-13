@@ -33,6 +33,8 @@ import { AdminDashboardComponent } from './admin-portal/admin-dashboard/admin-da
 import { AdminPortalComponent } from './admin-portal/admin-portal.component';
 import { AdminNavComponent } from './admin-portal/admin-nav/admin-nav.component';
 import { AuthGuard } from './common/auth-guard.service';
+import { AuthGuardAdmin } from './common/auth-guard-admin.service';
+import { AdminNewsComponent } from './admin-portal/admin-news/admin-news.component';
 
 
 export const firebaseConfig = environment.firebase;
@@ -52,6 +54,7 @@ export const firebaseConfig = environment.firebase;
     AdminDashboardComponent,
     AdminPortalComponent,
     AdminNavComponent,
+    AdminNewsComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +81,7 @@ export const firebaseConfig = environment.firebase;
     MatSidenavModule,
     AngularFontAwesomeModule
   ],
-  providers: [userService, customFormValidators, ProfileComponent, authService, AuthGuard],
+  providers: [userService, customFormValidators, ProfileComponent, authService, AuthGuard, AuthGuardAdmin],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

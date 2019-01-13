@@ -6,11 +6,10 @@
 
     <span class="example-spacer"></span>
     <button *ngIf="!authService.isLoggedIn()" mat-button routerLink="home">Home</button>
-    <button *ngIf="authService.isLoggedIn()" mat-button routerLink="browse">Browse</button>
-    <button *ngIf="authService.isLoggedInAdmin()" mat-button routerLink="admin-portal">Dashboard</button>
+    <button *ngIf="authService.isLoggedIn() && !authService.isLoggedInAdmin()" mat-button routerLink="browse">Browse</button>
     <button *ngIf="!authService.isLoggedIn() && !authService.isLoggedInAdmin()" mat-button routerLink="login">Login</button>
     <button *ngIf="!authService.isLoggedIn() && !authService.isLoggedInAdmin()" mat-button routerLink="signup">Sign up</button>
-    <button *ngIf="authService.isLoggedIn()" mat-button (click)="profileSidebar.toggle(); toggleSidebar()">Profile</button>
+    <button *ngIf="authService.isLoggedIn() && !authService.isLoggedInAdmin()" mat-button (click)="profileSidebar.toggle(); toggleSidebar()">Profile</button>
     <button *ngIf="authService.isLoggedIn() || authService.isLoggedInAdmin()" mat-button (click)="authService.logUserOut()">Logout</button>
 
 

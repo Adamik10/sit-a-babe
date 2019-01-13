@@ -30,7 +30,7 @@ export class userService {
     //this only creates an observable - that's why we RETURN this observable and we subscribe to it in the component
   }
 
-  saveEditedUsers(users: object) {
-    return this.http.put("https://sit-a-baby.firebaseio.com//users.json", users);
+  editUser(key, user: User) {
+    return this.http.put("https://sit-a-baby.firebaseio.com//users/"+key+".json", user);
   }
 }

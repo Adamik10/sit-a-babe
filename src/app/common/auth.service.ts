@@ -21,7 +21,7 @@ export class authService {
       */
   }
 
-  logUserIn(email: string, password: string) {
+  logUserIn(email: string, password: string, returnUrl) {
     /*
         firebase.auth().signInWithEmailAndPassword(email, password).then(
             response => {
@@ -79,12 +79,12 @@ export class authService {
                 localStorage.loggedIn = true;
                 localStorage.role = 'user';
                 console.log("logged in");
-                this.router.navigate(["/browse"]);
+                this.router.navigate([returnUrl || "/browse"]);
             }else{
                 localStorage.loggedIn = true;
                 localStorage.role = 'admin';
                 console.log("logged in");
-                this.router.navigate(["/admin-portal"]);
+                this.router.navigate([returnUrl || "/admin-portal"]);
             }
 
         }else{
