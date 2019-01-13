@@ -32,6 +32,7 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { AdminDashboardComponent } from './admin-portal/admin-dashboard/admin-dashboard.component';
 import { AdminPortalComponent } from './admin-portal/admin-portal.component';
 import { AdminNavComponent } from './admin-portal/admin-nav/admin-nav.component';
+import { AuthGuard } from './common/auth-guard.service';
 
 
 export const firebaseConfig = environment.firebase;
@@ -77,7 +78,7 @@ export const firebaseConfig = environment.firebase;
     MatSidenavModule,
     AngularFontAwesomeModule
   ],
-  providers: [userService, customFormValidators, ProfileComponent, authService],
+  providers: [userService, customFormValidators, ProfileComponent, authService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
-import * as firebase from 'firebase';
+// import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -14,9 +14,11 @@ export class AppComponent implements OnInit {
   description = 'Angular-application';
 
   ngOnInit() {
+    /*
     firebase.initializeApp({
       apiKey: "AIzaSyBuTkdG0uAwAC6Ch5SdsRr5zLw8_I7ZSoI",
       authDomain: "sit-a-baby.firebaseapp.com"
     });
+    */
   }
 }

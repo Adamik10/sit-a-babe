@@ -3,6 +3,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { customFormValidators } from "../common/formValidators";
 import { NavbarComponent } from "../navbar/navbar.component"
+import { authService } from "../common/auth.service";
 
 @Component({
   selector: "app-profile",
@@ -13,9 +14,11 @@ export class ProfileComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private customValidators: customFormValidators,
+    private authService: authService,
     @Inject(NavbarComponent) private navComponent
   ) {}
 
+  currentUser
   editProfileForm: FormGroup;
 
   ngOnInit() {
@@ -67,11 +70,28 @@ export class ProfileComponent implements OnInit {
       Saturdays: ["", [Validators.required]],
       Sundays: ["", [Validators.required]]
     });
+
+    this.currentUser = localStorage.getItem("currentUser");
+    this.currentUser = JSON.parse(this.currentUser)
+
   }
 
   @ViewChild("profileSidebar") sidenav: MatSidenav;
 
   close() {
     this.navComponent.sidenav.close();
+    var body = document.getElementById("bodyMain");
+    body.style.overflow = "visible";
+  }
+
+  getCurrentAge(birthdate){
+    const dateOFBirth = new Date(birthdate)
+    const today = new Date()
+    let age = today.getFullYear() - dateOFBirth.getFullYear();
+    const m = today.getMonth() - dateOFBirth.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < dateOFBirth.getDate())) {
+      age --
+    }
+    return age;
   }
 }

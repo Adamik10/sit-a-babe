@@ -11,9 +11,11 @@ import { ViewProfileComponent } from './view-profile/view-profile.component';
 import { AdminPortalComponent } from './admin-portal/admin-portal.component';
 import { AdminNavComponent } from './admin-portal/admin-nav/admin-nav.component';
 import { AdminDashboardComponent } from './admin-portal/admin-dashboard/admin-dashboard.component';
+import { AuthGuard } from './common/auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'unsuccessfulLogin', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'browse', component: BrowseComponent, children: [
       { path: 'browse-list', component: BrowseListComponent },
