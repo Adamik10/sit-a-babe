@@ -14,11 +14,11 @@
       </div>
       <div class="row">
         <p class="inputNameProfileStatic">Surname</p>
-        <p class="inputValueProfileStatic">{{ currentUser.surname }}</p>
+        <p class="inputValueProfileStatic" id="inputSurname">{{ currentUser.surname }}</p>
       </div>
       <div class="row">
         <p class="inputNameProfileStatic">Age</p>
-        <p class="inputValueProfileStatic">{{getCurrentAge(currentUser.birth_date)}}</p>
+        <p class="inputValueProfileStatic" id="inputAge">{{getCurrentAge(currentUser.birth_date)}}</p>
       </div>
     </div>
     <div class="profilePicPicContainer">
@@ -33,10 +33,10 @@
         <div class="profileSectionLeft">
           <h2 class="profileHeadline">Profile settings</h2>
           <div class="rowHigher">
-            <p class="inputNameProfile">Profile picture</p> <input spellcheck="false" matInput value="{{ currentUser.picture_location }}" formControlName="profilePicLink">
+            <p class="inputNameProfile">Profile picture</p> <input spellcheck="false" matInput value="{{ currentUser.picture_location }}" formControlName="profilePicLink" id="profileFormPicture">
           </div>
           <div class="rowHigher">
-            <p class="inputNameProfile">Password</p> <input spellcheck="false" matInput value="{{ currentUser.password }}" formControlName="currentPass">
+            <p class="inputNameProfile">Password</p> <input spellcheck="false" matInput value="{{ currentUser.password }}" formControlName="currentPass"  id="profileFormOldPassword">
           </div>
           <div class="rowHigher">
             <p class="inputNameProfile">New password</p> <input spellcheck="false" matInput value="" formControlName="newPass">
@@ -46,14 +46,14 @@
         <div class="profileSectionRight">
           <h2 class="profileHeadline">About you</h2>
           <div class="rowHigher">
-            <p class="inputNameProfile">Occupation</p> <input spellcheck="false" matInput value="{{ currentUser.occupation }}" formControlName="occupation">
+            <p class="inputNameProfile">Occupation</p> <input spellcheck="false" matInput value="{{ currentUser.occupation }}" formControlName="occupation"  id="profileFormOccupation">
           </div>
           <div class="rowHigher">
             <p class="inputNameProfile">Introduction</p> 
-            <textarea spellcheck="false" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" value="{{ currentUser.introduction }}" formControlName="introduction"></textarea>
+            <textarea spellcheck="false" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1" cdkAutosizeMaxRows="5" value="{{ currentUser.introduction }}" formControlName="introduction" id="profileFormIntroduction"></textarea>
           </div>
           <div class="rowHigher">
-            <p class="inputNameProfile">Location</p> <input spellcheck="false" matInput value="{{ currentUser.location }}" formControlName="location">
+            <p class="inputNameProfile">Location</p> <input spellcheck="false" matInput value="{{ currentUser.location }}" formControlName="location" id="profileFormLocation">
           </div>
         </div>
 

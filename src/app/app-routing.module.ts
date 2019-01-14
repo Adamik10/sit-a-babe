@@ -22,10 +22,10 @@ const routes: Routes = [
   {
     path: 'browse', component: BrowseComponent, canActivate: [AuthGuard], children: [
       { path: 'browse-list', component: BrowseListComponent },
-      { path: 'filters', component: FiltersComponent },
-      { path: 'view-profile/:id', component: ViewProfileComponent }
+      { path: 'filters', component: FiltersComponent }
     ]
   },
+  { path: 'view-profile/:id', component: ViewProfileComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },

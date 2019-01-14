@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, Inject } from "@angular/core";
 import { MatSidenav } from '@angular/material/sidenav';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { customFormValidators } from "../common/formValidators";
-import { NavbarComponent } from "../navbar/navbar.component"
+// import { NavbarComponent } from "../navbar/navbar.component"
 import { authService } from "../common/auth.service";
 import { userService } from "../common/user.service";
 import { User } from "../common/user.model";
@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit {
     private customValidators: customFormValidators,
     private authService: authService,
     private userService: userService,
-    @Inject(NavbarComponent) private navComponent
+    // @Inject(NavbarComponent) private navComponent
   ) {}
 
   currentUser;
@@ -42,7 +42,7 @@ export class ProfileComponent implements OnInit {
       occupation: ["", [Validators.minLength(4), Validators.maxLength(50)]],
       introduction: ["", [Validators.minLength(20), Validators.maxLength(500)]],
       location: [
-        "not set",
+        "",
         [Validators.minLength(2), Validators.maxLength(20)]
       ],
       Mondays: [""],
@@ -58,23 +58,37 @@ export class ProfileComponent implements OnInit {
     this.currentUser = JSON.parse(this.currentUser);
   }
 
-  @ViewChild("profileSidebar") sidenav: MatSidenav;
+  // @ViewChild("profileSidebar") sidenav: MatSidenav;
 
   
 
   close() {
-    this.navComponent.sidenav.close();
+    /*this.navComponent.sidenav.close();
     var body = document.getElementById("bodyMain");
-    body.style.overflow = "visible";
+    body.style.overflow = "visible"; */
+    //localStorage.currentUser = JSON.stringify(this.currentUser);
     this.currentUser = localStorage.getItem("currentUser");
     this.currentUser = JSON.parse(this.currentUser);
+    console.log(JSON.stringify(this.currentUser));
   }
 
   updateToCurrentUser(){
     this.currentUser = localStorage.getItem("currentUser");
     this.currentUser = JSON.parse(this.currentUser);
+    console.log('I am trying to update the DOM');
+    console.log(JSON.stringify(this.currentUser))
+    
     // change the user data to the new data in the DOM
     document.getElementById("inputName").innerHTML = this.currentUser.userName;
+    document.getElementById("inputSurname").innerHTML = this.currentUser.surname;
+    let numberOfDate = this.getCurrentAge(this.currentUser.birth_date);
+    document.getElementById("inputAge").innerHTML = numberOfDate.toString();
+    document.getElementById("profilePicture").setAttribute('src', this.currentUser.picture_location);
+    document.getElementById("profileFormPicture").setAttribute('value', this.currentUser.picture_location);
+    document.getElementById("profileFormOldPassword").setAttribute('value', this.currentUser.password);
+    document.getElementById("profileFormOccupation").setAttribute('value', this.currentUser.occupation);
+    document.getElementById("profileFormIntroduction").setAttribute('value', this.currentUser.introduction);
+    document.getElementById("profileFormOccupation").setAttribute('value', this.currentUser.profileFormLocation);
   }
 
 
@@ -129,16 +143,16 @@ export class ProfileComponent implements OnInit {
               ].password = this.editProfileForm.value.newPass;
             }
           }
-          if (this.editProfileForm.value.occupation != this.currentUser.occupation && deleteToo != true) {
+          if (this.editProfileForm.value.occupation != this.currentUser.occupation && deleteToo != true && this.editProfileForm.value.occupation != '') {
             this.loadedAllUsers[i].occupation = this.editProfileForm.value.occupation;
           }
-          if (this.editProfileForm.value.location != this.currentUser.location && deleteToo != true) {
+          if (this.editProfileForm.value.location != this.currentUser.location && deleteToo != true && this.editProfileForm.value.location != '') {
             this.loadedAllUsers[i].location = this.editProfileForm.value.location;
           }
-          if (this.editProfileForm.value.introduction != this.currentUser.introduction && deleteToo != true) {
+          if (this.editProfileForm.value.introduction != this.currentUser.introduction && deleteToo != true && this.editProfileForm.value.introduction != "") {
             this.loadedAllUsers[i].introduction = this.editProfileForm.value.introduction;
           }
-          if (this.editProfileForm.value.profilePicLink != this.currentUser.introduction && deleteToo != true) {
+          if (this.editProfileForm.value.profilePicLink != this.currentUser.profilePicLink && deleteToo != true && this.editProfileForm.value.profilePicLink != "") {
             this.loadedAllUsers[i].picture_location = this.editProfileForm.value.picture_location;
           }
           console.log(JSON.stringify(this.loadedAllUsers[i]));
@@ -172,6 +186,7 @@ export class ProfileComponent implements OnInit {
           );
           
           this.close();
+
           if(deleteToo == true){
             this.authService.logUserOut();
           }
