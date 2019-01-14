@@ -10,7 +10,7 @@
 <div class="container">
 
   <mat-tab-group dynamicHeight mat-stretch-tabs>
-    <mat-tab label="Parent">
+    <mat-tab label="Parent" id="e2eDaddySignup">
       <div class="mat-elevation-z4">
 
         <div class="to-middle-spacer-half"></div>
@@ -21,7 +21,7 @@
         
             <div class="form-field-wrapper-single">
               <mat-form-field>
-                <input matInput placeholder="First Name" formControlName="firstNameParent">
+                <input matInput placeholder="First Name" formControlName="firstNameParent" id="e2eDaddySignupName">
                 <mat-error *ngIf='firstNameParent.invalid && firstNameParent.touched'>
                   Your name should be at least 2 characters long.
                 </mat-error>
@@ -30,7 +30,7 @@
         
             <div class="form-field-wrapper-single">
               <mat-form-field>
-                <input matInput placeholder="Last Name" formControlName="lastNameParent">
+                <input matInput placeholder="Last Name" formControlName="lastNameParent" id="e2eDaddySignupSurname">
                 <mat-error *ngIf='lastNameParent.invalid && lastNameParent.touched'>
                   Your last name should be at least 2 characters long.
                 </mat-error>
@@ -39,7 +39,7 @@
 
             <div class="form-field-wrapper-single">
               <mat-form-field>
-                <input matInput [matDatepicker]="dateOfBirthPickerParent" placeholder="Your date of birth" formControlName="dateOfBirthParent">
+                <input matInput [matDatepicker]="dateOfBirthPickerParent" placeholder="Your date of birth" formControlName="dateOfBirthParent" id="e2eDaddySignupBirthDate">
                 <mat-datepicker-toggle matSuffix [for]="dateOfBirthPickerParent"></mat-datepicker-toggle>
                 <mat-datepicker #dateOfBirthPickerParent startView="year" [startAt]="startDate"></mat-datepicker>
                 <mat-error *ngIf='dateOfBirthParent.invalid && dateOfBirthParent.touched'>
@@ -51,7 +51,7 @@
             <div class="to-middle-spacer-half"></div>
             <div class="form-field-wrapper-single">
               <mat-form-field>
-                <input matInput placeholder="Email" formControlName="emailParent">
+                <input matInput placeholder="Email" formControlName="emailParent" id="e2eDaddySignupEmail">
                 <mat-error *ngIf='emailParent.invalid && emailParent.touched'>
                   Please enter a valid email.
                 </mat-error>
@@ -60,7 +60,7 @@
 
             <div class="form-field-wrapper-single">
               <mat-form-field>
-                <input matInput placeholder="Password" formControlName="passwordParent">
+                <input matInput placeholder="Password" formControlName="passwordParent" id="e2eDaddySignupPassword">
                 <mat-hint>Min. 8 characters (at least one number)</mat-hint>
                 <mat-error *ngIf='passwordParent.invalid && passwordParent.touched'>
                   Please enter a valid password.
