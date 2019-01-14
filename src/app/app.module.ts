@@ -1,8 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule, MatToolbarModule, MatInputModule, MatProgressSpinnerModule, MatCardModule, MatMenuModule, MatIconModule, 
-  MatTabsModule, MatStepperModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule  } from '@angular/material';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import {
+  MatButtonModule, MatCheckboxModule, MatToolbarModule, MatInputModule, MatProgressSpinnerModule, MatCardModule, MatMenuModule, MatIconModule,
+  MatTabsModule, MatStepperModule, MatDatepickerModule, MatNativeDateModule, MatSelectModule
+} from '@angular/material';
 import { ReactiveFormsModule, FormControl, FormsModule } from '@angular/forms';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSidenavModule } from "@angular/material";
@@ -37,6 +39,13 @@ import { AuthGuardAdmin } from './common/auth-guard-admin.service';
 import { AdminNewsComponent } from './admin-portal/admin-news/admin-news.component';
 import { PipeShorten } from './pipe-shorten.pipe';
 import { FilterLocationPipe } from './filter-location.pipe';
+
+import { NgRedux, DevToolsExtension, NgReduxModule } from '@angular-redux/store';
+import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
+
+//turorial
+//import { StoreModule } from '@ngrx/store';
+import { SimpleReducer } from "./redux-stuff/simple.reducer";
 
 
 export const firebaseConfig = environment.firebase;
@@ -84,7 +93,8 @@ export const firebaseConfig = environment.firebase;
     AngularFireModule.initializeApp(environment.firebase),
     MatSidenavModule,
     AngularFontAwesomeModule,
-    FormsModule
+    FormsModule,
+    //StoreModule.forRoot({ message: SimpleReducer})
   ],
   providers: [
     userService,
@@ -92,7 +102,7 @@ export const firebaseConfig = environment.firebase;
     ProfileComponent,
     authService,
     AuthGuard,
-    AuthGuardAdmin
+    AuthGuardAdmin,
   ],
   bootstrap: [AppComponent]
 })

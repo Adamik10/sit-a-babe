@@ -1,6 +1,5 @@
 import { browser, element, by, $$ } from "protractor";
 import { AppPage } from "./app.po";
-// import { async } from 'q';
 
 describe('home', () => {
   // 0: Login as Saska
@@ -15,11 +14,11 @@ describe('home', () => {
 
   let page: AppPage;
 
-  it('should do all the commands', () => {
+  it('should do all the commands', async() => {
 
-    browser.get('home')
+    browser.get('home');
     browser.sleep(10000);
-    /*
+    
     //go to login
     $$("#e2eNavLogin").click();
     browser.sleep(2000);
@@ -85,9 +84,8 @@ describe('home', () => {
       });
       
     })
-    */
 
   });
 
 
-});
+})
