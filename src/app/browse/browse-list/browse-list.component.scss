@@ -92,6 +92,7 @@ button.mat-stroked-button span.mat-button-wrapper:hover{
     // background-color: rgb(201, 86, 86);  
     margin-left: 0px;
     margin-right: 0px;
+    pointer-events: none;
 }
 #browseListContainer{
     position: relative;
@@ -103,6 +104,7 @@ button.mat-stroked-button span.mat-button-wrapper:hover{
     padding-top: 64px;
     padding-left: 50px;
     top: 0px;
+    margin-bottom: 64px;
 }
 
 #filtersContainer{

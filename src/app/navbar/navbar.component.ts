@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material';
 import { authService } from '../common/auth.service';
+/* import { ProfileComponent } from '../profile/profile.component'; */
 
 @Component({
   selector: "app-navbar",
@@ -8,7 +9,7 @@ import { authService } from '../common/auth.service';
   styleUrls: ["./navbar.component.scss"]
 })
 export class NavbarComponent implements OnInit {
-  constructor(private authService: authService) {}
+  constructor(private authService: authService/*, private profilePage: ProfileComponent*/) {}
 
   ngOnInit() {}
 
@@ -43,4 +44,7 @@ export class NavbarComponent implements OnInit {
     this.isSidebarOpen = false;
   }
 
+  openCurrentUser(){
+    // this.profilePage.updateToCurrentUser()
+  }
 }

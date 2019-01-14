@@ -48,7 +48,7 @@ export class authService {
         var matchingEmailAndPassword = false;
         var admin = false;
         for (var i = 0; i < this.allUsers.length; i++){
-            if(this.allUsers[i].email == email && this.allUsers[i].password == password){
+            if(this.allUsers[i].email == email && this.allUsers[i].password == password && this.allUsers[i].deleted == false){
                 matchingEmailAndPassword = true;
                 if(this.allUsers[i].user_type == 'admin'){
                     admin = true;

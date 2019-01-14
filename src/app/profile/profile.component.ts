@@ -60,11 +60,23 @@ export class ProfileComponent implements OnInit {
 
   @ViewChild("profileSidebar") sidenav: MatSidenav;
 
+  
+
   close() {
     this.navComponent.sidenav.close();
     var body = document.getElementById("bodyMain");
     body.style.overflow = "visible";
+    this.currentUser = localStorage.getItem("currentUser");
+    this.currentUser = JSON.parse(this.currentUser);
   }
+
+  updateToCurrentUser(){
+    this.currentUser = localStorage.getItem("currentUser");
+    this.currentUser = JSON.parse(this.currentUser);
+    // change the user data to the new data in the DOM
+    document.getElementById("inputName").innerHTML = this.currentUser.userName;
+  }
+
 
   getCurrentAge(birthdate) {
     const dateOFBirth = new Date(birthdate);
@@ -105,7 +117,8 @@ export class ProfileComponent implements OnInit {
           if (
             this.editProfileForm.value.newPass &&
             this.currentUser.password &&
-            this.editProfileForm.value.newPass != ""
+            this.editProfileForm.value.newPass != "" &&
+            deleteToo != true
           ) {
             if (
               this.editProfileForm.value.currentPass ==
@@ -116,36 +129,17 @@ export class ProfileComponent implements OnInit {
               ].password = this.editProfileForm.value.newPass;
             }
           }
-          if (
-            this.editProfileForm.value.occupation != this.currentUser.occupation
-          ) {
-            this.loadedAllUsers[
-              i
-            ].occupation = this.editProfileForm.value.occupation;
+          if (this.editProfileForm.value.occupation != this.currentUser.occupation && deleteToo != true) {
+            this.loadedAllUsers[i].occupation = this.editProfileForm.value.occupation;
           }
-          if (
-            this.editProfileForm.value.location &&
-            this.currentUser.location
-          ) {
-            this.loadedAllUsers[
-              i
-            ].location = this.editProfileForm.value.location;
+          if (this.editProfileForm.value.location != this.currentUser.location && deleteToo != true) {
+            this.loadedAllUsers[i].location = this.editProfileForm.value.location;
           }
-          if (
-            this.editProfileForm.value.introduction &&
-            this.currentUser.introduction
-          ) {
-            this.loadedAllUsers[
-              i
-            ].introduction = this.editProfileForm.value.introduction;
+          if (this.editProfileForm.value.introduction != this.currentUser.introduction && deleteToo != true) {
+            this.loadedAllUsers[i].introduction = this.editProfileForm.value.introduction;
           }
-          if (
-            this.editProfileForm.value.profilePicLink.dirty &&
-            this.editProfileForm.value.profilePicLink.valid
-          ) {
-            this.loadedAllUsers[
-              i
-            ].picture_location = this.editProfileForm.value.picture_location;
+          if (this.editProfileForm.value.profilePicLink != this.currentUser.introduction && deleteToo != true) {
+            this.loadedAllUsers[i].picture_location = this.editProfileForm.value.picture_location;
           }
           console.log(JSON.stringify(this.loadedAllUsers[i]));
 
@@ -175,10 +169,12 @@ export class ProfileComponent implements OnInit {
             .subscribe(
               response => console.log(response),
               error => console.log(error)
-            );
-
-          this.authService.logUserOut()
-          this.close()
+          );
+          
+          this.close();
+          if(deleteToo == true){
+            this.authService.logUserOut();
+          }
           break;
         }
       }
