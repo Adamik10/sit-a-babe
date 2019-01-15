@@ -60,7 +60,7 @@
 
             <div class="form-field-wrapper-single">
               <mat-form-field>
-                <input matInput placeholder="Password" formControlName="passwordParent" id="e2eDaddySignupPassword">
+                <input matInput placeholder="Password" formControlName="passwordParent" id="e2eDaddySignupPassword" type="password">
                 <mat-hint>Min. 8 characters (at least one number)</mat-hint>
                 <mat-error *ngIf='passwordParent.invalid && passwordParent.touched'>
                   Please enter a valid password.
@@ -73,7 +73,7 @@
 
             <div class="form-field-wrapper-single">
               <mat-form-field>
-                <input matInput placeholder="Repeat Password" formControlName="passwordParentRepeat">
+                <input matInput placeholder="Repeat Password" formControlName="passwordParentRepeat" type="password">
                 <mat-error *ngIf='passwordParentRepeat.invalid && passwordParentRepeat.touched'>
                   Please enter a valid password.
                 </mat-error>
@@ -141,7 +141,7 @@
             
             <div class="form-field-wrapper-single">
               <mat-form-field>
-                <input matInput placeholder="Password" formControlName="passwordSitter">
+                <input matInput placeholder="Password" formControlName="passwordSitter" type="password">
                 <mat-hint>8 characters (at least one number.)</mat-hint>
                 <mat-error *ngIf='passwordSitter.invalid && passwordSitter.touched'>
                   Please enter a valid password.
@@ -154,7 +154,7 @@
             
             <div class="form-field-wrapper-single">
               <mat-form-field>
-                <input matInput placeholder="Repeat Password" formControlName="passwordSitterRepeat">
+                <input matInput placeholder="Repeat Password" formControlName="passwordSitterRepeat" type="password">
                 <mat-error *ngIf='passwordSitterRepeat.invalid && passwordSitterRepeat.touched'>
                   Please enter a valid password.
                 </mat-error>

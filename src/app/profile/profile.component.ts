@@ -66,7 +66,7 @@ export class ProfileComponent implements OnInit {
     /*this.navComponent.sidenav.close();
     var body = document.getElementById("bodyMain");
     body.style.overflow = "visible"; */
-    //localStorage.currentUser = JSON.stringify(this.currentUser);
+    localStorage.currentUser = JSON.stringify(this.currentUser);
     this.currentUser = localStorage.getItem("currentUser");
     this.currentUser = JSON.parse(this.currentUser);
     console.log(JSON.stringify(this.currentUser));
