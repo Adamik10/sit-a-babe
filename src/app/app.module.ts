@@ -66,6 +66,7 @@ export const firebaseConfig = environment.firebase;
     AdminPortalComponent,
     AdminNavComponent,
     AdminNewsComponent,
+    AdminDashboardComponent,
     PipeShorten,
     FilterLocationPipe
   ],

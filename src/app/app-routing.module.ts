@@ -30,7 +30,6 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   { path: 'admin-portal', component: AdminPortalComponent, canActivate: [AuthGuardAdmin], children: [
-      { path: 'admin-nav', component: AdminNavComponent },
       { path: 'admin-dashboard', component: AdminDashboardComponent },
       { path: 'admin-news', component: AdminNewsComponent }
     ] 
